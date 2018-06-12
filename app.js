@@ -1,25 +1,22 @@
-console.log("Starting the app.js");
+console.log('Staring app.js');
 
 const fs= require('fs');
-const os= require('os');
-const notes= require('./notes');
+const _= require('lodash');
 
-var add= notes.add(3,3);
-console.log(add);
+var command= process.argv[2];
+console.log(command);
+console.log("process.argv object:",process.argv);
 
-const _=require('lodash');
-console.log(_.isString(true));
-console.log(_.isString('vish'));
-
-var filteredArray = _.uniq(['vish','1','vish','1','2','3','4']);
-console.log(filteredArray);
-
-
-// var user= os.userInfo();
-// console.log(user);
-
-// fs.appendFileSync('greetings.txt', 'Hello '+user.username+' !');
-// fs.appendFileSync('greetings.txt', `Hello ${user.username}! You are ${notes.age} old`);
-
-// var newNotes= notes.addNotes();
-// console.log(newNotes);
+if(command === 'add') {
+    console.log('Adding Notes');
+}else if(command === 'read'){
+    console.log('Reading All Notes');
+}else if (command === 'remove') {
+    console.log('Removing Notes');
+}else if(command === 'list'){
+    console.log('Listing All Notes');
+}else if (command === 'update') {
+    console.log('Updating Notes');
+}else {
+    console.log('Command not regognize');
+}
