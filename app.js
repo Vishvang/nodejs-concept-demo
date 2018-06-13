@@ -2,21 +2,26 @@ console.log('Staring app.js');
 
 const fs= require('fs');
 const _= require('lodash');
+const yargs= require('yargs');
 
-var command= process.argv[2];
-console.log(command);
-console.log("process.argv object:",process.argv);
+const notes= require('./notes');
+
+const command= process.argv[2];
+console.log('command= ',command);
+console.log("process.argv obj= ",process.argv);
+
+const argv = yargs.argv;
+console.log('argv= ',argv);
+
 
 if(command === 'add') {
-    console.log('Adding Notes');
-}else if(command === 'read'){
-    console.log('Reading All Notes');
-}else if (command === 'remove') {
-    console.log('Removing Notes');
+    notes.addNote(argv.title, argv.body);    
 }else if(command === 'list'){
-    console.log('Listing All Notes');
-}else if (command === 'update') {
-    console.log('Updating Notes');
+    notes.getAll();
+}else if(command === 'read'){
+    notes.getNote(argv.title);
+}else if (command === 'remove') {
+    notes.removeNote(argv.title);
 }else {
     console.log('Command not regognize');
 }
