@@ -51,6 +51,9 @@ var removeNote = (title) => {
 };
 
 var logNote = (note) => {
+    //Break on this line to debug
+    debugger;
+    // use read command with --title in repl mode
     console.log('---');
     console.log('Title: ' + note.title);
     console.log(`Title: ${note.title}`);
