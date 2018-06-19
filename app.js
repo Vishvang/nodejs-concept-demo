@@ -8,19 +8,30 @@ const command= process.argv[2];
 // console.log('command= ',command);
 // console.log("process.argv obj= ",process.argv);
 
+const titleOption = {
+    describe: 'Title of note',
+    demand: true,
+    alias:'t'
+};
+
+const bodyOption = {
+    describe: 'Body of note',
+    demand: true,
+    alias:'b'
+};
+
 const argv = yargs.command('add','Add a new note',{
-    title: {
-        describe: 'Title of note',
-        demand: true,
-        alias:'t'
-    },
-    body: {
-        describe: 'Body of note',
-        demand: true,
-        alias:'b'
-    }
+    title: titleOption,
+    body: bodyOption 
 }
 )
+.command('list','List all notes')
+.command('read','Read a note', {
+    title: titleOption
+})
+.command('remove','Removing a note', {
+    title: titleOption
+})
 .help()
 .argv;
 // console.log('argv= ',argv);
