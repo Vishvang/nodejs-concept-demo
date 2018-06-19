@@ -1,4 +1,3 @@
-console.log('Starting the notes.js');
 // console.log(module);
 module.exports.age= 27;
 
@@ -33,7 +32,7 @@ var addNote = (title, body) => {
 };
 
 var getAll = () => {
-    
+    return fetchNotes();
 };
 
 var getNote = (title) => {
@@ -55,9 +54,9 @@ var logNote = (note) => {
     debugger;
     // use read command with --title in repl mode
     console.log('---');
-    console.log('Title: ' + note.title);
+    // console.log('Title: ' + note.title);
     console.log(`Title: ${note.title}`);
-    console.log(`Body:  + ${note.body}`);
+    console.log(`Body: ${note.body}`);
 }
 module.exports = {
     addNote,     // Eq to addNote: addNote
